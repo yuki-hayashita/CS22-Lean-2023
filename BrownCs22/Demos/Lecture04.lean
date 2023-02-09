@@ -67,12 +67,17 @@ example : p → p ∨ q := by
 -- try it yourself:
 
 example : q → p ∨ q := by 
-  sorry 
+  intro hq
+  right
+  assumption
 
 example : (p ∧ q) → (p ↔ q) := by 
-  sorry
-
-
+  intro h
+  split_goal
+  {
+    {intro hq}
+    {sorry}
+    }
 
 /-
 *Elimination rules* tell us how we can use hypotheses. To start:
